@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="common/head :: head_fragment(title = 'トップ', scripts = ~{}, links = ~{})"></head>
+
+<body>
+	<div th:replace="common/header :: header_fragment"></div>
+	ITEMS PAGE
+	<table th:if="${items != null}">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>商品名</th>
+				<th>価格</th>
+				<th>在庫数</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="item:${items}" th:object="${item}">
+				<td th:text="*{id}"></td>
+				<td th:text="*{name}"></td>
+				<td th:text="*{priceAsString}"></td>
+			<td th:text="*{stockQuantity}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>
