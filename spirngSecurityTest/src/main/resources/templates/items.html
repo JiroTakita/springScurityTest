@@ -6,7 +6,7 @@
 <body>
 	<div th:replace="common/header :: header_fragment"></div>
 	ITEMS PAGE
-	<table th:if="${items != null}">
+	<table th:if="${items != null}" class="table">
 		<thead>
 			<tr>
 				<th>ID</th>
@@ -19,8 +19,8 @@
 			<tr th:each="item:${items}" th:object="${item}">
 				<td th:text="*{id}"></td>
 				<td th:text="*{name}"></td>
-				<td th:text="*{priceAsString}"></td>
-			<td th:text="*{stockQuantity}"></td>
+				<td th:text="*{priceAsString}"class="text-end"></td>
+			<td th:text="*{stockQuantity}" class="text-end"></td>
 			</tr>
 		</tbody>
 	</table>
